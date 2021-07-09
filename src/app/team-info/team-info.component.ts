@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamInfoComponent implements OnInit {
 
+  fluteSet: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onToggleFlute() {
+    this.fluteSet = !this.fluteSet;
   }
 
 }

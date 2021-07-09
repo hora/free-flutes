@@ -8,18 +8,28 @@
   </div>
 
   <div class="team-info__name-wrapper">
-    <h2 class="team-info__name">Montréal Detours</h2>
-    <div class="team-info__slogan">"Rue barrée."</div>
+    <h2 class="team-info__name">
+      <input type="text" value="Montréal Detours"/>
+    </h2>
+    <div class="team-info__slogan">
+      <input type="text" value="'Rue barrée.'" />
+    </div>
   </div>
 </div>
 
 <div class="team-info__bottom">
   <div class="team-info__extra-wrapper">
-    <div class="team-info__arcana">
+    <div class="team-info__arcana" contenteditable role="textbox">
       XV The Devil
     </div>
-    <div class="team-info__fave" style="background-color: rgb(92, 28,28)">
-      Favourite Team
+    <div [ngClass]="{'team-info__fave': true, 'set': fluteSet}"
+      style="background-color: rgb(92, 28,28)" (click)="onToggleFlute()">
+      <span class="fave-set">Favourite Team</span>
+      <span class="fave-flute">
+        <svg width="20" height="20">
+          <image xlink:href="assets/images/flute.svg" width="20" height="20" />
+        </svg>Choose Team
+      </span>
     </div>
   </div>
 </div>

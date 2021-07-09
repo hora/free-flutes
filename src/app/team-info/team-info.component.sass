@@ -53,10 +53,11 @@
     width: 100%
     flex-wrap: wrap
 
-  &__arcana
+  & &__arcana
     border: 1px solid #fff
     padding: 4px 10px
     border-radius: 5px
+    min-width: 75px
     width: -webkit-fit-content
     width: -moz-fit-content
     width: fit-content
@@ -75,3 +76,33 @@
     height: 32px
     padding: 0px 15px
     margin: auto 0 auto auto
+
+    .fave-set
+      display: none
+    .fave-flute
+      display: flex
+      opacity: .65
+      font-size: 14px
+
+      svg
+        font-size: 20px
+        margin-right: 5px
+        margin-left: -5px
+
+    &.set .fave-set
+      display: flex
+    &.set .fave-flute
+      display: none
+
+
+  input
+    background: none
+    border: none
+    margin: 0
+    padding: 0
+    color: inherit
+    font-family: inherit
+    font-style: inherit
+    font-variant: inherit
+    font-size: inherit
+    font-weight: inherit

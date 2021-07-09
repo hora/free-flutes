@@ -2,17 +2,18 @@
 
 <div class="team-info__top">
   <div class="team-info__logo-wrapper">
-    <div class="team-info__logo" style="background-color: rgb(92, 28, 28)">
-      🚧
+    <div id="team-info__logo" class="team-info__logo" style="background-color: {{ teamColour }}"
+      (click)="onToggleLogoPicker()">
+      {{ teamEmoji }}
     </div>
   </div>
 
   <div class="team-info__name-wrapper">
     <h2 class="team-info__name">
-      <input type="text" value="Montréal Detours"/>
+      <input type="text" value="{{ teamName}}"/>
     </h2>
     <div class="team-info__slogan">
-      <input type="text" value="'Rue barrée.'" />
+      <input type="text" value="{{ teamSlogan }}" />
     </div>
   </div>
 </div>
@@ -20,10 +21,10 @@
 <div class="team-info__bottom">
   <div class="team-info__extra-wrapper">
     <div class="team-info__arcana" contenteditable role="textbox">
-      XV The Devil
+      {{ teamArcana }}
     </div>
     <div [ngClass]="{'team-info__fave': true, 'set': fluteSet}"
-      style="background-color: rgb(92, 28,28)" (click)="onToggleFlute()">
+         style="background-color: {{ teamColour }}" (click)="onToggleFlute()">
       <span class="fave-set">Favourite Team</span>
       <span class="fave-flute">
         <svg width="20" height="20">
@@ -35,3 +36,11 @@
 </div>
 
 </div>
+
+<div [ngClass]="{'logo-tooltip': true, 'show': showLogoPicker}" style="{{
+  logoPickerPosition }}">
+  <div class="colour-picker" style="background-color: {{ teamColour }}"
+    [style.color]="teamColour" [(colorPicker)]="teamColour"></div>
+  <input type="text" [(ngModel)]="teamEmoji" />
+</div>
+

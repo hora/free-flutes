@@ -4,16 +4,24 @@
       <div class="roster__header">Lineup</div>
 
       <ul class="roster__list">
-        <app-player *ngFor="let player of lineup" [player]="player"></app-player>
+        <app-player *ngFor="let player of lineup; let i = index"
+          [player]="player" (revoke)="revokePlayer($event, 'lineup', i)">
+        </app-player>
       </ul>
+      <div (click)="addPlayer('lineup')" class="roster__add-button">Plunder from
+      Onomancer</div>
     </div>
 
     <div class="roster-category rotation">
       <div class="roster__header">Rotation</div>
 
       <ul class="roster__list">
-        <app-player *ngFor="let player of rotation" [player]="player"></app-player>
+        <app-player *ngFor="let player of rotation; let i = index"
+          [player]="player" (revoke)="revokePlayer($event, 'rotation', i)">
+        </app-player>
       </ul>
+      <div (click)="addPlayer('rotation')" class="roster__add-button">Plunder
+        from Onomancer</div>
     </div>
   </div>
 </div>

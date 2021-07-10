@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Output, ElementRef, HostListener, EventEmitter } from '@angular/core';
 
 import { Player } from '../player';
 
@@ -13,6 +13,11 @@ export class PlayerComponent implements OnInit {
     name: 'Loading',
     rating: 1
   };
+
+  @Output() revoke: EventEmitter<any> = new EventEmitter<any>();
+
+  //@Input() position: string = '';
+  //@Input() i: number = -1;
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
@@ -53,6 +58,10 @@ export class PlayerComponent implements OnInit {
 
   toggleStarsInput(state: boolean) {
     this.showStarsInput = state;
+  }
+
+  onRevoke() {
+    this.revoke.emit();
   }
 
   ngOnInit(): void { }

@@ -13,6 +13,7 @@ export class RosterComponent implements OnInit {
   players: Player[] = [];
   lineup: Player[] = [];
   rotation: Player[] = [];
+  nextPlayerIndex: number = 14;
 
   constructor(private playersService: PlayersService) {
     this.playersService.getPlayerNames().subscribe((names: string[]) => {
@@ -23,8 +24,8 @@ export class RosterComponent implements OnInit {
         };
       });
 
-      this.lineup = this.players.slice(0, 3);
-      this.rotation = this.players.slice(3);
+      this.lineup = this.players.slice(0, 9);
+      this.rotation = this.players.slice(9, 14);
     });
   }
 
@@ -51,9 +52,31 @@ export class RosterComponent implements OnInit {
       this.generateRandomRating(0.05, 0.4)
     ];
 
-    console.log(ratings);
-
     return ratings[Math.floor(Math.random() * ratings.length)];
+  }
+
+  addPlayer(position: string) {
+    let rosterPos = this.lineup;
+
+    if (position === 'rotation') {
+      rosterPos = this.rotation;
+    }
+
+    if (this.nextPlayerIndex >= this.players.length) {
+      this.nextPlayerIndex = 14;
+    }
+
+    rosterPos.push(this.players[this.nextPlayerIndex++]);
+  }
+
+  revokePlayer(evt: any, position: string, i: number) {
+    let rosterPos = this.lineup;
+
+    if (position === 'rotation') {
+      rosterPos = this.rotation;
+    }
+
+    rosterPos.splice(i, 1);
   }
 
 }

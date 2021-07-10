@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ColorPickerModule } from 'ngx-color-picker';
 
@@ -11,6 +12,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabPaneComponent } from './tab-pane/tab-pane.component';
 import { TeamModsComponent } from './team-mods/team-mods.component';
 import { RosterComponent } from './roster/roster.component';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { RosterComponent } from './roster/roster.component';
     TabsComponent,
     TabPaneComponent,
     TeamModsComponent,
-    RosterComponent
+    RosterComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

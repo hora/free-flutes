@@ -1,0 +1,77 @@
+.roster__player
+
+  font-size: .8em
+
+  padding: 5px 20px
+  margin-top: 5px
+  min-height: 34px
+  line-height: 1.2em
+
+  display: grid
+  grid-gap: 5px
+  gap: 5px
+  grid-template-columns: auto 50px 110px
+  grid-template-rows: auto
+  align-items: center
+
+  &:nth-child(2n+1)
+    background: rgba(30,30,30,.6392156862745098)
+
+  &:hover
+    background: hsla(0,0%,39.6%,.6509803921568628)
+
+.player-name
+  font-size: 16px
+  display: flex
+  align-items: center
+  position: relative
+
+  input
+    background: none
+    border: none
+    margin: 0
+    padding: 0
+    color: inherit
+    font-family: inherit
+    font-style: inherit
+    font-variant: inherit
+    font-size: inherit
+    font-weight: inherit
+
+.player-stars
+  font-size: 18px
+  display: flex
+  flex-wrap: wrap
+
+  & > span
+    display: flex
+
+  &.show > span
+    display: none
+
+  &__fraction
+    overflow: hidden
+    display: inline-block
+    height: 18px
+    position: relative
+
+  input
+    display: none
+    background: none
+    border: none
+    margin: 0
+    padding: 0
+    color: inherit
+    font-family: inherit
+    font-style: inherit
+    font-variant: inherit
+    font-size: inherit
+    font-weight: inherit
+    width: 50px
+
+  &.show input
+    display: block
+
+  &__none
+    font-size: 14px
+

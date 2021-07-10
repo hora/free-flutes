@@ -1,0 +1,23 @@
+<li class="roster__player">
+  <div class="player-name">
+    <input type="text" value="{{ player.name }}"/>
+  </div>
+  <div class="vibes">
+  </div>
+  <div [ngClass]="{'player-stars': true, 'show': showStarsInput}">
+    <input type="number" [(ngModel)]="player.rating"
+    (change)="toggleStarsInput(false)">
+    <span (click)="toggleStarsInput(true)">
+      <div class="player-stars__none" *ngIf="!getBaseStars() && !getDecimalWidth()">(0.0)</div>
+      <svg *ngFor="let item of createRange(getBaseStars())" width="18" height="18">
+        <image xlink:href="assets/images/star.svg" width="18" height="18" />
+      </svg>
+      <div class="player-stars__fraction" *ngIf="getDecimalWidth()"
+        style="width: {{ getDecimalWidth() }}px;">
+        <svg width="18" height="18">
+          <image xlink:href="assets/images/star.svg" width="18" height="18" />
+        </svg>
+      </div>
+    </span>
+  </div>
+</li>

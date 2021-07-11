@@ -40,8 +40,8 @@ export class PlayersService {
       'Siliva Rugrat',
     ];
 
-    return of(players);
+    //return of(players);
 
-    //return this.http.get<string[]>(this.onomancerUrl);
+    return this.http.get<string[]>(this.onomancerUrl);
   }
 }

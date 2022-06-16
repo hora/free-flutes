@@ -1,4 +1,4 @@
-# Baseblall Points
+# Free Flutes
 
 A small Angular app for making your own Blaseball team, in the style of [blaseball.com](https://www.blaseball.com/).
 
